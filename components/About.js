@@ -3,6 +3,8 @@ import { ImTwitter } from "react-icons/im";
 import { BsGithub } from "react-icons/bs";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { motion } from "framer-motion"
+import {FaLinkedinIn} from "react-icons/fa"
+
 
 
 
@@ -53,10 +55,11 @@ const About = ({ about, social }) => {
             <p className="text-gray-600 font-semibold m-2">{about}</p>
           </div>
           <div className="mt-5 md:mt-0">
-            <div className="flex items-center justify-center gap-3 text-gray-900 p-2 px-3 shadow-sm">
+            <div className="flex items-center justify-center gap-3 text-gray-600 p-2 px-3 shadow-sm">
               <a target='_blank' rel="noreferrer" href={social.facebook}><SiFacebook className="h-5 w-5 hover:text-green-500 transition-all hover:scale-125 cursor-pointer" /></a>
               <a target='_blank' rel="noreferrer" href={social.twitter}><ImTwitter className="h-5 w-5 hover:text-green-500 transition-all hover:scale-125 cursor-pointer" /></a>
               <a target='_blank' rel="noreferrer" href={social.instagram}><SiInstagram className="h-5 w-5 hover:text-green-500 transition-all hover:scale-125 cursor-pointer" /></a>
+              <a target='_blank' rel="noreferrer" href={social.linkedin}><FaLinkedinIn className="h-5 w-5 hover:text-green-500 transition-all hover:scale-125 cursor-pointer" /></a>
               <a target='_blank' rel="noreferrer" href={social.github}><BsGithub className="h-5 w-5 hover:text-green-500 transition-all hover:scale-125 cursor-pointer" /></a>
             </div>
           </div>

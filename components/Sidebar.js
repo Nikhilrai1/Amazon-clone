@@ -1,20 +1,19 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { AiFillProject } from "react-icons/ai"
 import { FcAbout } from "react-icons/fc"
 import { MdPermContactCalendar, MdOutlineCancel } from "react-icons/md"
-import Link from 'next/link'
 import { FiBookmark } from "react-icons/fi";
 import { TiHome } from "react-icons/ti";
 import Modal from './Modal'
 
 
-const Sidebar = ({ toggleSidebar, showSidebar}) => {
+const Sidebar = ({ toggleSidebar, showSidebar, dark, changeTheme }) => {
     const [showModal, setShowModal] = useState(false)
     return (
-        <aside className={`w-full sm:w-[60%]  transition-all duration-500 z-50 shadow-2xl fixed top-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`} aria-label="Sidebar">
-            <div className="relative overflow-y-auto h-[100vh] py-4 px-3 bg-gray-100 bg-opacity-0.7  rounded dark:bg-gray-800">
+        <aside className={`w-full sm:w-[60%] transition-all duration-500 z-50 shadow-2xl fixed top-0 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`} aria-label="Sidebar">
+            <div className={`relative overflow-y-auto h-[100vh] py-4 px-3 ${!dark ? "bg-gray-100" : "bg-black"}   bg-opacity-0.7  rounded`}>
                 <button className="absolute top-3 right-3 md:top-5 md:right-4 p-3  hover:bg-black hover:text-white hover:rounded-full hover:shadow-md" onClick={() => toggleSidebar()}>
-                    <MdOutlineCancel className="h-7 w-7 md:h-9 md:w-9 hover:text-white" />
+                    <MdOutlineCancel className={`h-7 w-7 md:h-9 md:w-9 hover:text-white ${dark ? "text-gray-100" : "text-black"}`} />
                 </button>
                 {showModal && <Modal modalTitle={"Hire Me"} modalButton="Hire" setShowModal={setShowModal} />}
                 <ul className="space-y-2">
@@ -61,8 +60,11 @@ const Sidebar = ({ toggleSidebar, showSidebar}) => {
                         </div>
                         </a>
                     </li>
-                    <li>
+                    <li className='flex items-center gap-3'>
                         <button onClick={() => setShowModal(true)} className="flex md:hidden text-white bg-green-600 border-0 py-2 px-8 rounded-lg focus:outline-none hover:bg-green-500 hover:shadod-lg font-bold text-lg">Hire Me</button>
+                        <div onClick={() => changeTheme()} className={`flex cursor-pointer w-14 h-7 ${!dark ? "bg-gray-500" : "bg-green-500 justify-end"} rounded-full  items-center`}>
+                            <div className={`h-7 w-7 border-2 border-transparent rounded-full ${!dark ? "bg-gray-200" : "bg-white"}`}></div>
+                        </div>
                     </li>
                 </ul>
             </div>
