@@ -7,7 +7,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+      amazon_blue: {
+      light: "#232F3F",
+      DEFAULT: "#131921"
+      }
+    }
+    },
     screens: {
       'xs': {'max': '315px'},
       'exs': {'max': '200px'},
@@ -16,5 +23,4 @@ module.exports = {
   },
   variants: {},
 
-  plugins: [],
 }

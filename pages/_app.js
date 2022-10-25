@@ -1,14 +1,19 @@
-import { useState } from 'react'
-import Navbar from '../components/Navbar'
 import '../styles/globals.css'
+import { SessionProvider } from "next-auth/react"
+import { Provider } from 'react-redux'
+import { store } from '../app/store'
 
-function MyApp({ Component, pageProps }) {
+
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
-    <div className='m-0 p-0 box-border'>
-      <Component {...pageProps}/>
-    </div>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </SessionProvider>
   )
 }
-
-export default MyApp
 
