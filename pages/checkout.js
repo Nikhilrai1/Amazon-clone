@@ -5,13 +5,12 @@ import CheckoutProduct from '../components/CheckoutProduct';
 import Header from '../components/Header';
 import { selectItems, selectTotal } from '../slices/basketSlice';
 import { useSession } from "next-auth/react"
-
+import { loadStripe } from "@stripe/stripe-js"
 
 const Checkout = () => {
   const basketItems = useSelector(selectItems);
   const totalPrice = useSelector(selectTotal);
   const { data: session } = useSession();
-console.log(basketItems)
   return (
     <div className="bg-gray-100">
       <Header />
@@ -46,6 +45,7 @@ console.log(basketItems)
                 </span>
               </h1>
               <button
+                role="link"
                 disabled={!session}
                 className={`button mt-2 ${!session && 'from-gray-200 to-gray-500 border-gray-200 cursor-not-allowed text-gray-300 '}`} >
                 {!session ? "Login To Checkout" : "Proceed To Checkout"}

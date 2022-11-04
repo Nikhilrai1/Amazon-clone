@@ -52,6 +52,7 @@ const Header = () => {
                 </div>
             </div>
 
+
             {/* Bottom nav */}
             <div className="p-2 pl-6 text-white flex space-x-3 items-center bg-amazon_blue-light">
                 <p className="link flex items-center">
